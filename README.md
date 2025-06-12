@@ -31,10 +31,11 @@ Enjoy sharing this digital birthday card!
 
 ## Authors
 
-Contributors names and contact info
+<a href="https://github.com/saasfly/saasfly/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=chienhsiang-hung/happy-birthday-my-friend" />
+</a>
 
-- [tom.h.huang](tom.h.huang@fubon.com)
-- [hsiang.hung](hsiang.hung@fubon.com)
+Made with [contrib.rocks](https://contrib.rocks).
 
 <!-- Markdown link & img dfn's -->
 
