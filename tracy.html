@@ -27,12 +27,10 @@
       body {
         background: linear-gradient(
           135deg,
-          #ffe29f,
-          #ffa99f,
-          #ffb7e5
+          #ffe29f 0%,
+          #ffa99f 50%,
+          #ffb7e5 100%
         );
-        background-size: 400% 400%;
-        animation: gradient-animation 8s ease infinite;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -40,109 +38,261 @@
         height: 100vh;
         margin: 0;
         font-family: "Segoe UI", Arial, sans-serif;
-        background-attachment: fixed;
       }
-
-      @keyframes gradient-animation {
-        0% {
-          background-position: 0% 50%;
-        }
-        50% {
-          background-position: 100% 50%;
-        }
-        100% {
-          background-position: 0% 50%;
-        }
-      }
-
       .typing-container {
         background: rgba(255, 255, 255, 0.95);
-        padding: 2.5rem 3.5rem;
+        padding: 2.5rem 3.5rem 2rem 3.5rem;
         border-radius: 2rem;
         box-shadow: 0 8px 40px rgba(255, 183, 229, 0.18);
         font-size: 2.2rem;
         letter-spacing: 2px;
         min-width: 350px;
         text-align: center;
-        margin-bottom: 2rem;
+        margin-bottom: 2.5rem;
       }
-
       .typing {
         font-weight: bolder;
         border-right: 0.18em solid #ff5e62;
         white-space: nowrap;
         overflow: hidden;
         display: inline-block;
-        animation: blink-caret 0.75s step-end infinite, color-change 3s linear infinite;
-        background: linear-gradient(
-          90deg,
-          #6b3434,
-          #da2534
-        );
+        animation: blink-caret 0.75s step-end infinite;
+        background: linear-gradient(90deg, #6b3434, #da2534);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
       }
-
-      @keyframes color-change {
-        0% {
-          color: #ff5e62;
-        }
-        25% {
-          color: #ff9966;
+      @keyframes blink-caret {
+        from,
+        to {
+          border-color: transparent;
         }
         50% {
-          color: #ffcc66;
+          border-color: #ff5e62;
         }
-        75% {
-          color: #66ccff;
+      }
+
+      /* 蛋糕動畫樣式（加大且美化） */
+      .cake-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 0.5rem;
+      }
+      .cake {
+        position: relative;
+        width: 260px;
+        height: 320px;
+        margin: 0 auto;
+      }
+      .cake-plate {
+        position: absolute;
+        bottom: -32px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 300px;
+        height: 38px;
+        background: #e0e0e0;
+        border-radius: 0 0 150px 150px/0 0 38px 38px;
+        z-index: 0;
+        box-shadow: 0 2px 16px #bdbdbd55;
+      }
+      .cake-base {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 240px;
+        height: 120px;
+        background: #fff0c7;
+        border-radius: 0 0 120px 120px/0 0 80px 80px;
+        border: 5px solid #e0b97d;
+        box-shadow: 0 8px 24px #e0b97d33;
+        z-index: 1;
+      }
+      .cake-middle {
+        position: absolute;
+        bottom: 100px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 180px;
+        height: 70px;
+        background: #ffe6f2;
+        border-radius: 90px 90px 40px 40px/60px 60px 30px 30px;
+        border: 4px solid #e0b97d;
+        z-index: 2;
+      }
+      .cake-top {
+        position: absolute;
+        bottom: 155px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 120px;
+        height: 50px;
+        background: #fffbe0;
+        border-radius: 60px 60px 30px 30px/40px 40px 20px 20px;
+        border: 3px solid #e0b97d;
+        z-index: 3;
+      }
+      .cake-icing {
+        position: absolute;
+        bottom: 145px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 120px;
+        height: 30px;
+        background: linear-gradient(90deg, #ffb7e5 60%, #ffa99f 100%);
+        border-radius: 60px 60px 30px 30px/40px 40px 20px 20px;
+        z-index: 4;
+        box-shadow: 0 4px 16px #ffb7e555;
+      }
+      .cake-drip {
+        position: absolute;
+        bottom: 170px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 110px;
+        height: 28px;
+        background: #ffa99f;
+        border-radius: 50% 50% 40% 40%;
+        z-index: 5;
+        clip-path: polygon(
+          0 0,
+          100% 0,
+          100% 60%,
+          90% 100%,
+          75% 70%,
+          60% 100%,
+          45% 70%,
+          30% 100%,
+          15% 70%,
+          0 100%
+        );
+      }
+      .cake-candle {
+        position: absolute;
+        top: 35px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 22px;
+        height: 70px;
+        background: repeating-linear-gradient(
+          135deg,
+          #ff5e62 0 12px,
+          #fff 12px 24px
+        );
+        border-radius: 6px;
+        z-index: 6;
+        box-shadow: 0 2px 8px #e0b97d44;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+      }
+      .cake-candle::before {
+        content: "";
+        display: block;
+        width: 10px;
+        height: 10px;
+        background: #e0b97d;
+        border-radius: 50%;
+        position: absolute;
+        bottom: -8px;
+        left: 50%;
+        transform: translateX(-50%);
+        opacity: 0.5;
+      }
+      .cake-flame {
+        position: absolute;
+        top: -28px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 32px;
+        height: 44px;
+        z-index: 7;
+        pointer-events: none;
+      }
+      .flame {
+        position: absolute;
+        left: 50%;
+        top: 0;
+        width: 54px;
+        height: 58px;
+        background: radial-gradient(
+          ellipse at center,
+          #fff700 55%,
+          #ffd600 80%,
+          #ff9100 100%
+        );
+        border-radius: 50% 50% 60% 60%/60% 60% 100% 100%;
+        transform: translateX(-50%);
+        opacity: 0.92;
+        animation: flame-flicker 1s infinite alternate;
+        box-shadow: 0 0 36px 12px #ffe600cc;
+      }
+      @keyframes flame-flicker {
+        0% {
+          transform: translateX(-50%) scaleY(1) scaleX(1);
+          opacity: 0.85;
+        }
+        30% {
+          transform: translateX(-50%) scaleY(1.08) scaleX(0.95);
+          opacity: 1;
+        }
+        60% {
+          transform: translateX(-50%) scaleY(0.92) scaleX(1.05);
+          opacity: 0.8;
         }
         100% {
-          color: #ff5e62;
+          transform: translateX(-50%) scaleY(1) scaleX(1);
+          opacity: 0.9;
         }
       }
-
-      .card {
-        background: rgba(255, 255, 255, 0.75);
-        backdrop-filter: blur(10px);
-        padding: 2rem 2.5rem;
-        border-radius: 1.5rem;
-        box-shadow: 0 6px 30px rgba(255, 183, 229, 0.15);
-        max-width: 600px;
-        text-align: left;
-        font-size: 1.2rem;
-        line-height: 1.8;
-        color: #6b3434;
+      .cake-sprinkle {
+        position: absolute;
+        width: 12px;
+        height: 6px;
+        border-radius: 6px;
+        background: #ff5e62;
+        z-index: 8;
+        transform: rotate(-20deg);
       }
-
-      .card strong {
+      .cake-sprinkle.s1 {
+        top: 170px;
+        left: 70px;
+        background: #ffb7e5;
+      }
+      .cake-sprinkle.s2 {
+        top: 180px;
+        left: 120px;
+        background: #ffa99f;
+      }
+      .cake-sprinkle.s3 {
+        top: 160px;
+        left: 180px;
+        background: #ff5e62;
+      }
+      .cake-sprinkle.s4 {
+        top: 200px;
+        left: 90px;
+        background: #ffe29f;
+      }
+      .cake-sprinkle.s5 {
+        top: 210px;
+        left: 160px;
+        background: #da2534;
+      }
+      .cake-sprinkle.s6 {
+        top: 190px;
+        left: 210px;
+        background: #ffb300;
+      }
+      .cake-text {
+        margin-top: 2.2rem;
         font-size: 1.4rem;
-        color: #da2534;
-      }
-
-      .signature {
-        margin-top: 1rem;
-        text-align: right;
-        font-size: 1.2rem;
-        color: #6b3434;
-      }
-
-      @media (max-width: 768px) {
-        .card {
-          font-size: 1.5rem;
-          padding: 2.5rem;
-          max-width: 90%;
-        }
-
-        .signature {
-          font-size: 1.5rem;
-          margin-top: 1.5rem;
-        }
-
-        .typing-container {
-          font-size: 2.5rem;
-          padding: 3rem;
-        }
+        color: #a85d5d;
+        font-weight: 600;
+        letter-spacing: 1px;
+        text-shadow: 0 1px 2px #fff6;
       }
     </style>
   </head>
@@ -150,26 +300,33 @@
     <div class="typing-container">
       <span id="typing" class="typing"></span>
     </div>
-    <div class="card">
-      <strong>🎉 親愛的 Tracy：</strong><br /><br />
-      在這特別的一天，願你的笑容比陽光更燦爛，願你的心情像彩虹般繽紛。<br />
-      謝謝你一直以來的溫暖與陪伴，世界因你而更美好 💖<br /><br />
-      祝你生日快樂，願你每一天都充滿愛、希望與驚喜！<br /><br />
-      <strong>Happy Birthday!! 🎂🎈</strong><br />
-      — 來自我們的祝福 ✨
-      <div class="signature">
-        by <a href="https://github.com/xinhuang0716" target="_blank">tom.h.huang</a> & 
-        <a href="https://github.com/chienhsiang-hung" target="_blank">hsiang.hung</a>
+    <div class="cake-container">
+      <div class="cake">
+        <div class="cake-plate"></div>
+        <div class="cake-base"></div>
+        <div class="cake-middle"></div>
+        <div class="cake-top"></div>
+        <div class="cake-icing"></div>
+        <div class="cake-drip"></div>
+        <div class="cake-candle">
+          <div class="cake-flame">
+            <div class="flame"></div>
+          </div>
+        </div>
+        <div class="cake-sprinkle s1"></div>
+        <div class="cake-sprinkle s2"></div>
+        <div class="cake-sprinkle s3"></div>
+        <div class="cake-sprinkle s4"></div>
+        <div class="cake-sprinkle s5"></div>
+        <div class="cake-sprinkle s6"></div>
       </div>
+      <div class="cake-text">雖然遲到 但還是要吃蛋糕!!！</div>
     </div>
-    <audio autoplay loop>
-      <source src="https://example.com/happy-birthday-song.mp3" type="audio/mpeg" />
-      Your browser does not support the audio element.
-    </audio>
     <script>
       const text = "Happy Birthday, Tracy !!";
       const typingEl = document.getElementById("typing");
       let idx = 0;
+
       function type() {
         if (idx <= text.length) {
           typingEl.textContent = text.slice(0, idx);
@@ -178,28 +335,6 @@
         }
       }
       type();
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/fireworks-js@2/dist/fireworks.min.js"></script>
-    <script>
-      const container = document.body;
-      const fireworks = new Fireworks(container, {
-        speed: 3,
-        acceleration: 1.05,
-        friction: 0.98,
-        gravity: 1.5,
-        particles: 150,
-        trace: 3,
-        explosion: 5,
-        autoresize: true,
-        brightness: { min: 50, max: 80, decay: { min: 0.015, max: 0.03 } },
-        boundaries: { x: 50, y: 50, width: container.clientWidth - 100, height: container.clientHeight - 100 },
-      });
-      fireworks.start();
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script>
-      gsap.from(".typing-container", { opacity: 0, y: -50, duration: 1 });
-      gsap.from(".card", { opacity: 0, scale: 0.8, duration: 1, delay: 0.5 });
     </script>
   </body>
 </html>
