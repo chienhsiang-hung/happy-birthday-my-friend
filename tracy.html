@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Happy Birthday, Tracy !!</title>
+    <style>
+      body {
+        background: linear-gradient(
+          135deg,
+          #ffe29f,
+          #ffa99f,
+          #ffb7e5
+        );
+        background-size: 400% 400%;
+        animation: gradient-animation 8s ease infinite;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        font-family: "Segoe UI", Arial, sans-serif;
+        background-attachment: fixed;
+      }
+
+      @keyframes gradient-animation {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      .typing-container {
+        background: rgba(255, 255, 255, 0.95);
+        padding: 2.5rem 3.5rem;
+        border-radius: 2rem;
+        box-shadow: 0 8px 40px rgba(255, 183, 229, 0.18);
+        font-size: 2.2rem;
+        letter-spacing: 2px;
+        min-width: 350px;
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+
+      .typing {
+        font-weight: bolder;
+        border-right: 0.18em solid #ff5e62;
+        white-space: nowrap;
+        overflow: hidden;
+        display: inline-block;
+        animation: blink-caret 0.75s step-end infinite, color-change 3s linear infinite;
+        background: linear-gradient(
+          90deg,
+          #6b3434,
+          #da2534
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      @keyframes color-change {
+        0% {
+          color: #ff5e62;
+        }
+        25% {
+          color: #ff9966;
+        }
+        50% {
+          color: #ffcc66;
+        }
+        75% {
+          color: #66ccff;
+        }
+        100% {
+          color: #ff5e62;
+        }
+      }
+
+      .card {
+        background: rgba(255, 255, 255, 0.75);
+        backdrop-filter: blur(10px);
+        padding: 2rem 2.5rem;
+        border-radius: 1.5rem;
+        box-shadow: 0 6px 30px rgba(255, 183, 229, 0.15);
+        max-width: 600px;
+        text-align: left;
+        font-size: 1.2rem;
+        line-height: 1.8;
+        color: #6b3434;
+      }
+
+      .card strong {
+        font-size: 1.4rem;
+        color: #da2534;
+      }
+
+      .signature {
+        margin-top: 1rem;
+        text-align: right;
+        font-size: 1.2rem;
+        color: #6b3434;
+      }
+
+      @media (max-width: 768px) {
+        .card {
+          font-size: 1.5rem;
+          padding: 2.5rem;
+          max-width: 90%;
+        }
+
+        .signature {
+          font-size: 1.5rem;
+          margin-top: 1.5rem;
+        }
+
+        .typing-container {
+          font-size: 2.5rem;
+          padding: 3rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="typing-container">
+      <span id="typing" class="typing"></span>
+    </div>
+    <div class="card">
+      <strong>🎉 親愛的 Maggie：</strong><br /><br />
+      在這特別的一天，願你的笑容比陽光更燦爛，願你的心情像彩虹般繽紛。<br />
+      謝謝你一直以來的溫暖與陪伴，世界因你而更美好 💖<br /><br />
+      祝你生日快樂，願你每一天都充滿愛、希望與驚喜！<br /><br />
+      <strong>Happy Birthday!! 🎂🎈</strong><br />
+      — 來自我們的祝福 ✨
+      <div class="signature">
+        by <a href="https://github.com/xinhuang0716" target="_blank">tom.h.huang</a> & 
+        <a href="https://github.com/chienhsiang-hung" target="_blank">hsiang.hung</a>
+      </div>
+    </div>
+    <audio autoplay loop>
+      <source src="https://example.com/happy-birthday-song.mp3" type="audio/mpeg" />
+      Your browser does not support the audio element.
+    </audio>
+    <script>
+      const text = "Happy Birthday, Maggie !!";
+      const typingEl = document.getElementById("typing");
+      let idx = 0;
+      function type() {
+        if (idx <= text.length) {
+          typingEl.textContent = text.slice(0, idx);
+          idx++;
+          setTimeout(type, 90);
+        }
+      }
+      type();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/fireworks-js@2/dist/fireworks.min.js"></script>
+    <script>
+      const container = document.body;
+      const fireworks = new Fireworks(container, {
+        speed: 3,
+        acceleration: 1.05,
+        friction: 0.98,
+        gravity: 1.5,
+        particles: 150,
+        trace: 3,
+        explosion: 5,
+        autoresize: true,
+        brightness: { min: 50, max: 80, decay: { min: 0.015, max: 0.03 } },
+        boundaries: { x: 50, y: 50, width: container.clientWidth - 100, height: container.clientHeight - 100 },
+      });
+      fireworks.start();
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script>
+      gsap.from(".typing-container", { opacity: 0, y: -50, duration: 1 });
+      gsap.from(".card", { opacity: 0, scale: 0.8, duration: 1, delay: 0.5 });
+    </script>
+  </body>
+</html>
