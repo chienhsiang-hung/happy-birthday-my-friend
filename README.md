@@ -38,5 +38,5 @@ Contributors names and contact info
 
 <!-- Markdown link & img dfn's -->
 
-[HTML5-image]: https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white
-[Javacript-image]: https://shields.io/badge/react-black?logo=react&style=for-the-badge](https://shields.io/badge/JavaScript-F7DF1E?logo=JavaScript&logoColor=000&style=flat-square
+[HTML5-image]: https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white
+[Javacript-image]: https://shields.io/badge/JavaScript-F7DF1E?logo=JavaScript&logoColor=000&style=flat-square
